@@ -92,12 +92,14 @@ angular.module('neo4jApp.services')
         pingLater: (event) =>
           timer = $timeout(
             () =>
-              @ping(event)
+              #@ping(event)
             ,
             (Settings.heartbeat * 1000)
           )
 
         shouldPing: (event) =>
+          # AK remove reporting to Neo4j
+          # return true
           if not (Settings.shouldReportUdc?)
             @pingLater(event)
             return false
