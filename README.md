@@ -33,7 +33,7 @@ Please refer to original Neo4j documentation for other installiation options. Th
 
 #### Use existing binaries and build only neo4j-browser
 
-The whole repository building could be a long process. To save time, you can build only neo4j-browser library and download rest of the original Neo4j package. This distrubutive can be downloaded from the [official Neo4j Web site](http://neo4j.com/artifact.php?name=neo4j-community-2.2.4-unix.tar.gz). For you convinience we have also provded a copy of this package in this archive. It is located in `dist/neo4j-community-2.2.4-unix.tar.gz` 
+The whole repository building could be a long process. To save time, you can build only neo4j-browser library and download rest of the original Neo4j package. This package can be downloaded from the [official Neo4j Web site](http://neo4j.com/artifact.php?name=neo4j-community-2.2.4-unix.tar.gz). For you convenience we have also provded a copy of this package in this archive. It is located in `dist/neo4j-community-2.2.4-unix.tar.gz` 
 
 To download and install the original Neo4j 2.2.4 into your home directory, execute:
 
@@ -50,7 +50,7 @@ To do that, execute (from a main repository folder):
 mvn package -pl :neo4j-browser -am
 ```
 
-If comile process will success, compiled libaray will appear in `${main repository folder}/community/browser/target/neo4j-browser-2.2.4-SNAPSHOT.jar` rename it into `neo4j-browser-2.2.4.jar` and compile it into `${Neo4j home}/system/lib/`:
+If compile process will success, compiled libaray will appear in `${main repository folder}/community/browser/target/neo4j-browser-2.2.4-SNAPSHOT.jar` rename it into `neo4j-browser-2.2.4.jar` and compile it into `${Neo4j home}/system/lib/`:
 
 ```
 cp ${repository.folder}/community/browser/target/neo4j-browser-2.2.4-SNAPSHOT.jar ${neo4j.home}/system/lib/neo4j-browser-2.2.4.jar
@@ -61,7 +61,7 @@ replace ${repository.folder} with actuall path to your repository and ${neo4j.ho
 
 #### Apply a patch to original Neo4j
 
-We have provided a patch file what can be applyed to the original Neo4j repository. The patch can be found in `patchs/rd-switchboard-custom-ui.patch`. To apply it, clone the original Neo4j Repository, copy patch into repository folder and apply:
+We have provided a patch file what can be applied to the original Neo4j repository. The patch can be found in `patchs/rd-switchboard-custom-ui.patch`. To apply it, clone the original Neo4j Repository, copy patch into repository folder and apply:
 
 ```
 # Clone the repositiry
@@ -91,7 +91,7 @@ All Neo4j configuration is located in `${neo4j.home}/conf` folder.
 
 The neo4j-browser will be disabled by default. To enable it, uncomment this line in `conf/neo4j-server.properties` file:
 ```
-#org.neo4j.server.webserver.address=0.0.0.0
+org.neo4j.server.webserver.address=0.0.0.0
 ```
 
 To change Neo4j browser port, modify this line in `conf/neo4j-server.properties` file:
@@ -104,7 +104,7 @@ To limit transactions execution time, add this line to the end of `conf/neo4j-se
 org.neo4j.server.transaction.timeout=5
 ```
 
-To enable database upgrade from the previouse version, uncomment this line in `conf/neo4j.properties` file:
+To enable database upgrade from the previous version, uncomment this line in `conf/neo4j.properties` file:
 ```
 allow_store_upgrade=true
 ```
