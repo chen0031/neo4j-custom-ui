@@ -4,11 +4,11 @@ This repository contains a binaries, patch and sources for Neo4j 2.2.4 database 
 
 ### Requirements
 
-This Repository has been comiled in Ubuntu Linux 14.04 and will require Linux or Unix system. The neo4j-browser can not be compiled in Windows enviroments.
+This Repository has been compiled in Ubuntu Linux 14.04 and will require Linux or Unix system. The neo4j-browser can not be compiled in Windows enviroments.
 
 This Repository will require Java 1.7 and Apache Maven 3.0.5. The neo4j-browser will also require Node.js and npm to be installed locally. 
 
-### Build and Inatall
+### Build and Install
 
 There is several ways to build and install Neo4j from this repository.
 
@@ -33,7 +33,7 @@ Please refer to original Neo4j documentation for other installiation options. Th
 
 #### Use existing binaries and build only neo4j-browser
 
-The whole repository building could be a long process. To save time, you can build only neo4j-browser library and download rest of the original Neo4j distributive. This distrubutive can be downloaded from the [official Neo4j Web site](http://neo4j.com/artifact.php?name=neo4j-community-2.2.4-unix.tar.gz). For you convinience we have also provded a copy of this distributive in this archive. It is located in `dist/neo4j-community-2.2.4-unix.tar.gz` 
+The whole repository building could be a long process. To save time, you can build only neo4j-browser library and download rest of the original Neo4j package. This distrubutive can be downloaded from the [official Neo4j Web site](http://neo4j.com/artifact.php?name=neo4j-community-2.2.4-unix.tar.gz). For you convinience we have also provded a copy of this package in this archive. It is located in `dist/neo4j-community-2.2.4-unix.tar.gz` 
 
 To download and install the original Neo4j 2.2.4 into your home directory, execute:
 
@@ -85,6 +85,47 @@ mvn clean package
 
 Please refer to original Neo4j documentation for other installiation options. The documentation can be found in the [Neo4j Git Repository](https://github.com/neo4j/neo4j)
 
+### Configuration
 
+All Neo4j configuration is located in `${neo4j.home}/conf` folder.
+
+The neo4j-browser will be disabled by default. To enable it, uncomment this line in `conf/neo4j-server.properties` file:
+```
+#org.neo4j.server.webserver.address=0.0.0.0
+```
+
+To change Neo4j browser port, modify this line in `conf/neo4j-server.properties` file:
+```
+org.neo4j.server.webserver.port=7474
+```
+
+To limit transactions execution time, add this line to the end of `conf/neo4j-server.properties` file:
+```
+org.neo4j.server.transaction.timeout=5
+```
+
+To enable database upgrade from the previouse version, uncomment this line in `conf/neo4j.properties` file:
+```
+allow_store_upgrade=true
+```
+
+To make database read-only, add this line to the end of `conf/neo4j.properties` file:
+```
+read_only=true
+```
+
+### Start and Stop
+
+To start Neo4j, execute (from a Neo4j home folder):
+```
+./bin/neo4j start
+```
+
+To stutdown the server, execute:
+```
+./bin/neo4j stop
+```
+
+ 
 
 
